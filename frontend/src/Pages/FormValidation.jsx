@@ -10,6 +10,8 @@ export default function FormValidation() {
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
+  // console.log(isSubmitSuccessful);
+
   //* form status pending
  
   let [update,setupdate] = useState();
@@ -21,7 +23,7 @@ export default function FormValidation() {
 
     try {
       reset();
-      await fetch("http://localhost:8080/forms/post", {
+      await fetch("https://backendformhandling-production.up.railway.app/forms/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -125,9 +127,10 @@ export default function FormValidation() {
               submit
             </button>
             <br />
-            {isSubmitSuccessful && (
+          
+            {/* {isSubmitSuccessful && (
               <p className="text-green-300  text-2xl">Successfully Submited</p>
-            )}
+            )} */}
           </div>
         </div>
       </form>
